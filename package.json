@@ -1,0 +1,27 @@
+{
+  "name": "dinnerplate",
+  "version": "0.0.1",
+  "description": "John Apostol's workflow boilerplate, dinnerplate!",
+  "main": "src/app/app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/johnapost/dinnerplate.git"
+  },
+  "author": "John Apostol",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/johnapost/dinnerplate/issues"
+  },
+  "homepage": "https://github.com/johnapost/dinnerplate",
+  "devDependencies": {
+    "gulp": "^3.8.7",
+    "gulp-concat": "^2.3.4",
+    "gulp-jshint": "^1.8.4",
+    "gulp-rename": "^1.2.0",
+    "gulp-sass": "^0.7.3",
+    "gulp-uglify": "^0.3.1"
+  }
+}
