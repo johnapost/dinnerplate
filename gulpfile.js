@@ -16,7 +16,6 @@ gulp.task('sass', function() {
     .pipe(prefix('last 5 versions', '> 1%'))
     .pipe(minifycss())
     .pipe(rename('all.min.css'))
-    .pipe(gulp.dest('src/styles'))
     .pipe(gulp.dest('dist/styles'))
 });
 
@@ -26,14 +25,12 @@ gulp.task('scripts', function() {
     .pipe(concat('src/scripts/all.coffee'))
     .pipe(uglify())
     .pipe(rename('all.min.js'))
-    .pipe(gulp.dest('src/scripts'))
     .pipe(gulp.dest('dist/scripts'))
 });
 
 gulp.task('jade', function() {
   return gulp.src('src/*.jade')
     .pipe(jade())
-    .pipe(gulp.dest('src'))
     .pipe(gulp.dest('dist'))
 });
 
