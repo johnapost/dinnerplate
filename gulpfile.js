@@ -1,6 +1,5 @@
 var gulp = require('gulp'),
   watch = require('gulp-watch'),
-  connect = require('gulp-connect'),
   sass = require('gulp-sass'),
   prefix = require('gulp-autoprefixer'),
   minifycss = require('gulp-minify-css'),
@@ -8,7 +7,10 @@ var gulp = require('gulp'),
   uglify = require('gulp-uglify'),
   rename = require('gulp-rename'),
   jade = require('gulp-jade'),
-  coffee = require('gulp-coffee');
+  coffee = require('gulp-coffee'),
+  express = require('express'),
+  livereload = require('gulp-livereload'),
+  app = express();
 
 gulp.task('sass', function() {
   return gulp.src('src/styles/*.scss')
@@ -34,17 +36,15 @@ gulp.task('jade', function() {
     .pipe(gulp.dest('dist'))
 });
 
-gulp.task('server', function() {
-  connect.server({
-    root: 'dist',
-    livereload: true
-  })
+gulp.task('reload', function() {
+  return gulp.src(['dist/scripts/*.js', 'dist/styles/*.css', 'dist/*.html'])
+    .pipe(watch())
+    .pipe(livereload())
 })
 
-gulp.task('reload', function() {
-  return gulp.src(['src/scripts/*.js', 'src/styles/*.css', 'src/*.html'])
-    .pipe(watch())
-    .pipe(connect.reload())
+gulp.task('express', function() {
+  app.use(express.static(__dirname + '/dist'));
+  app.listen(1337);
 })
 
 gulp.task('watch', function() {
@@ -53,4 +53,4 @@ gulp.task('watch', function() {
   gulp.watch('src/*.jade', ['jade']);
 });
 
-gulp.task('default', ['sass', 'scripts', 'watch', 'server', 'reload']);
+gulp.task('default', ['jade', 'sass', 'scripts', 'watch', 'express', 'reload']);
