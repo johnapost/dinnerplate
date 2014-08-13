@@ -1,7 +1,6 @@
 var gulp = require('gulp'),
   watch = require('gulp-watch'),
   connect = require('gulp-connect'),
-  jshint = require('gulp-jshint'),
   sass = require('gulp-sass'),
   prefix = require('gulp-autoprefixer'),
   minifycss = require('gulp-minify-css'),
@@ -10,12 +9,6 @@ var gulp = require('gulp'),
   rename = require('gulp-rename'),
   jade = require('gulp-jade'),
   coffee = require('gulp-coffee');
-
-gulp.task('lint', function() {
-  return gulp.src('src/scripts/all.js')
-    .pipe(jshint())
-    .pipe(jshint.reporter('default'));
-});
 
 gulp.task('sass', function() {
   return gulp.src('src/styles/*.scss')
@@ -41,10 +34,14 @@ gulp.task('jade', function() {
   return gulp.src('src/*.jade')
     .pipe(jade())
     .pipe(gulp.dest('src'))
+    .pipe(gulp.dest('dist'))
 });
 
 gulp.task('server', function() {
-  connect.server({livereload: true})
+  connect.server({
+    root: 'dist',
+    livereload: true
+  })
 })
 
 gulp.task('reload', function() {
@@ -55,9 +52,8 @@ gulp.task('reload', function() {
 
 gulp.task('watch', function() {
   gulp.watch('src/scripts/*.coffee', ['scripts']);
-  gulp.watch('src/scripts/all.js', ['lint']);
   gulp.watch('src/styles/*.scss', ['sass']);
   gulp.watch('src/*.jade', ['jade']);
 });
 
-gulp.task('default', ['lint', 'sass', 'scripts', 'watch', 'server', 'reload']);
+gulp.task('default', ['sass', 'scripts', 'watch', 'server', 'reload']);
