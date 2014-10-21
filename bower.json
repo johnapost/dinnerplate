@@ -1,0 +1,26 @@
+{
+  "name": "dinnerplate",
+  "version": "0.1.0",
+  "authors": [
+    "John Apostol <notimetobeidle@gmail.com>"
+  ],
+  "description": "Good food",
+  "main": "src/app/app.js",
+  "moduleType": [
+    "node"
+  ],
+  "license": "ISC",
+  "homepage": "johnapostol.com",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "devDependencies": {
+    "famous-angular": "~0.4.0",
+    "angular": "1.2.22"
+  }
+}
