@@ -1,6 +1,6 @@
 var gulp = require('gulp'),
   watch = require('gulp-watch'),
-  clean = require('gulp-clean'),
+  del = require('del'),
   concat = require('gulp-concat'),
   uglify = require('gulp-uglify'),
   rename = require('gulp-rename'),
@@ -18,9 +18,8 @@ var gulp = require('gulp'),
   chmod = require('gulp-chmod'),
   app = express()
 
-gulp.task('clean', function() {
-  return gulp.src('dist', {read: false})
-    .pipe(clean())
+gulp.task('del', function() {
+  del('dist')
 })
 
 gulp.task('images', function() {
