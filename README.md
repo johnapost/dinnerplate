@@ -16,7 +16,6 @@ This is a static web app generator. It relies on the gulp build system and Angul
 **Then:**
 
     npm install
-    bower install
 
 **Finally:**
 
