@@ -2,25 +2,26 @@
   "name": "dinnerplate",
   "version": "0.1.0",
   "authors": [
-    "John Apostol <notimetobeidle@gmail.com>"
+    "John Apostol <john.apostol@everbank.com>"
   ],
-  "description": "Good food",
-  "main": "src/app/app.js",
+  "description": "dinnerplate",
+  "main": "src/canvas/app.coffee",
   "moduleType": [
     "node"
   ],
-  "license": "ISC",
-  "homepage": "johnapostol.com",
+  "license": "DO NOT COPY",
+  "homepage": "https://github.com/johnapost/dinnerplate",
   "private": true,
   "ignore": [
     "**/.*",
     "node_modules",
     "bower_components",
-    "test",
     "tests"
   ],
   "devDependencies": {
-    "famous-angular": "~0.4.0",
-    "angular": "1.2.22"
+    "angular": "~1.4.0",
+    "jquery": "~2.1.4",
+    "modernizr": "~2.8.3",
+    "velocity": "~1.2.2"
   }
 }
