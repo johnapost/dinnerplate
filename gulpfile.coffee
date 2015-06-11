@@ -39,9 +39,7 @@ gulp.task 'default', [
   'vendor'
   'jade'
   'sass'
-  'grid'
   'coffee'
-  'fonts'
   'images'
   'serve'
 ]

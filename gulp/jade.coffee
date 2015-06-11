@@ -35,7 +35,7 @@ gulp.task 'jade', ->
     .pipe chmod(755)
 
     .pipe rename (file) ->
-      file.dirname = file.dirname.replace('canvas', '')
+      file.dirname = file.dirname.replace('views', '')
     .pipe gulp.dest(config.path)
 
 gulp.task 'jadeProduction', ->
@@ -53,7 +53,7 @@ gulp.task 'jadeProduction', ->
     .pipe chmod(755)
 
     .pipe rename (file) ->
-      file.dirname = file.dirname.replace('canvas', '')
+      file.dirname = file.dirname.replace('views', '')
     .pipe gulp.dest(config.path)
 
 module.exports = gulp
