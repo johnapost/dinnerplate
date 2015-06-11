@@ -19,11 +19,5 @@
     "tests"
   ],
   "devDependencies": {
-    "angular": "~1.2.27",
-    "jquery": "~1.8.3",
-    "jquery-ui": "~1.9.2",
-    "velocity": "~1.2.2",
-    "modernizr": "~2.8.3",
-    "angular-off-click": "0.0.4"
   }
 }
