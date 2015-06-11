@@ -9,7 +9,6 @@ chmod = require 'gulp-chmod'
 filter = require 'gulp-filter'
 rename = require 'gulp-rename'
 config = require './config.coffee'
-argv = require('yargs').argv
 plumber = require 'gulp-plumber'
 notify = require 'gulp-notify'
 
@@ -30,13 +29,9 @@ gulp.task 'jade', ->
     .pipe inheritance(basedir: 'src')
     .pipe debug(title: 'changed')
     .pipe filter (file) ->
-      /canvas\//.test file.path
+      /views\//.test file.path
 
-    .pipe gulpif(
-      argv.sandbox,
-      jade(pretty: true, locals: {sandbox: true}),
-      jade(pretty: true)
-    )
+    .pipe jade(pretty: true)
     .pipe chmod(755)
 
     .pipe rename (file) ->
@@ -44,17 +39,21 @@ gulp.task 'jade', ->
     .pipe gulp.dest(config.path)
 
 gulp.task 'jadeProduction', ->
-  gulp.src 'src/components/**/*.jade'
+  gulp.src 'src/**/*.jade'
     .pipe plumber errorHandler: errorAlert
-    .pipe changed("#{config.path}/partials", extension: '.html')
+    .pipe changed(config.path, extension: '.html')
 
-    .pipe gulpif(
-      argv.sandbox,
-      jade(pretty: true, locals: {sandbox: true}),
-      jade(pretty: true)
-    )
+    .pipe cached('jade')
+    .pipe inheritance(basedir: 'src')
+    .pipe debug(title: 'changed')
+    .pipe filter (file) ->
+      /views\//.test file.path
+
+    .pipe jade(pretty: false)
     .pipe chmod(755)
 
-    .pipe gulp.dest("#{config.path}/partials/")
+    .pipe rename (file) ->
+      file.dirname = file.dirname.replace('canvas', '')
+    .pipe gulp.dest(config.path)
 
 module.exports = gulp

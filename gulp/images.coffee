@@ -15,6 +15,6 @@ gulp.task 'imagesProduction', ->
     .pipe changed("#{config.path}/images")
     .pipe imagemin()
     .pipe chmod(755)
-    .pipe gulp.dest("#{config.path}/sitecore/images")
+    .pipe gulp.dest("#{config.path}/images")
 
 module.exports = gulp

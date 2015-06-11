@@ -19,5 +19,9 @@
     "tests"
   ],
   "devDependencies": {
+    "angular": "~1.4.0",
+    "jquery": "~2.1.4",
+    "modernizr": "~2.8.3",
+    "velocity": "~1.2.2"
   }
 }

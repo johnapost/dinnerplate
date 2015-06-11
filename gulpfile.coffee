@@ -32,25 +32,7 @@ require './gulp/test.coffee'
 gulp.task 'production', [
   'sassProduction'
   'coffeeProduction'
-  'jadeProduction'
   'imagesProduction'
-]
-
-# Karma TDD
-gulp.task 'tdd', [
-  'default'
-  'test'
-]
-
-# For one-time builds to CI systems
-gulp.task 'ci', [
-  'vendor'
-  'jade'
-  'sass'
-  'grid'
-  'coffee'
-  'fonts'
-  'images'
 ]
 
 gulp.task 'default', [

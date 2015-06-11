@@ -8,8 +8,8 @@ gulp.task 'serve', ['sass'], ->
     port: 4000
     open: false
     reloadOnRestart: false
-    ghostMode: false
-    notify: false
+    ghostMode: true
+    notify: true
 
   gulp.watch 'src/**/*.scss', ['sass']
   gulp.watch ['src/**/*.coffee', '!src/**/*.spec.coffee'], ['coffee', browserSync.reload]

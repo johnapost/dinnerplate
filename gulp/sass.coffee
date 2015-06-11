@@ -7,7 +7,6 @@ csso = require 'gulp-csso'
 chmod = require 'gulp-chmod'
 filter = require 'gulp-filter'
 browserSync = require 'browser-sync'
-argv = require('yargs').argv
 config = require './config.coffee'
 plumber = require 'gulp-plumber'
 notify = require 'gulp-notify'
@@ -20,13 +19,8 @@ errorAlert = (error) ->
   console.log error.toString()
   this.emit 'end'
 
-if argv.sandbox
-  masterPath = 'src/brand/master-sandbox.scss'
-else
-  masterPath = 'src/brand/master.scss'
-
 gulp.task 'sass', ->
-  gulp.src masterPath
+  gulp.src 'src/styles/app.scss'
     .pipe plumber errorHandler: errorAlert
     .pipe sourcemaps.init()
 
@@ -41,7 +35,7 @@ gulp.task 'sass', ->
     .pipe browserSync.reload(stream: true)
 
 gulp.task 'sassProduction', ->
-  gulp.src masterPath
+  gulp.src 'src/styles/app.scss'
     .pipe plumber errorHandler: errorAlert
 
     .pipe sass(style: 'expanded')
