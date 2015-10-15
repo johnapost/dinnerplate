@@ -10,8 +10,8 @@ This is a static web app generator. It relies on the gulp build system and Angul
 
     git clone https://github.com/johnapost/dinnerplate.git
     cd dinnerplate
-    npm install bower -g
-    npm install gulp -g
+    sudo npm install bower -g
+    sudo npm install gulp -g
 
 **Then:**
 
