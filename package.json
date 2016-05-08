@@ -1,6 +1,6 @@
 {
   "name": "dinnerplate",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "This is a static web app generator. It relies on gulp.",
   "main": "src/canvas/app.coffee",
   "scripts": {
