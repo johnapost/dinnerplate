@@ -4,7 +4,7 @@ config = require './config.coffee'
 
 gulp.task 'test', (done) ->
   karma.start {
-    configFile: "#{__dirname}/../tests.js"
+    configFile: "#{__dirname}/../karma.conf.js"
   }, done()
 
 module.exports = gulp

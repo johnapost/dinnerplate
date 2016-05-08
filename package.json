@@ -5,7 +5,7 @@
   "main": "src/canvas/app.coffee",
   "scripts": {
     "postinstall": "bower install",
-    "test": "protractor features.js && karma start tests.js --single-run"
+    "test": "karma start karma.conf.js --single-run"
   },
   "repository": {
     "type": "git",
