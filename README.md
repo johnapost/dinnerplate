@@ -1,4 +1,4 @@
-**Dinnerplate 0.2.0**
+**Dinnerplate 0.3.0**
 
 ### Overview ###
 
